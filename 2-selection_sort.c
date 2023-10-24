@@ -10,7 +10,7 @@
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, k;
+	unsigned long int i, j, k;
 	int min;
 
 	if (size < 2)
@@ -18,22 +18,19 @@ void selection_sort(int *array, size_t size)
 
 	for (i = 0; i < size; i++)
 	{
-		min = array[i];
 		j = i + 1;
 		k = i;
 		while (j < size)
 		{
-			if (min > array[j])
-			{
-				min = array[j];
+			if (array[i] > array[j])
 				k = j;
-			}
 			j++;
 		}
 		if (i != k)
 		{
-			array[k] = array[i];
-			array[i] = min;
+			min = array[i];
+			array[i] = array[k];
+			array[k] = min;
 		}
 		print_array(array, size);
 	}
