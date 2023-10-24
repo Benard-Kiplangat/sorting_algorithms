@@ -30,12 +30,14 @@ void insertion_sort_list(listint_t **list)
 			else
 				*list = current;
 			temp_prev->next = current->next;
+
 			if (temp_prev->next)
 				temp_prev->next->prev = temp_prev;
+
 			current->next = temp_prev;
 			temp_prev->prev = current;
+			print_list(*list);
 		}
-		print_list(*list);
 		current = temp_next;
 	}
 }
